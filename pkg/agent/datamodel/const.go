@@ -36,6 +36,8 @@ const (
 	DefaultVnetNameResourceSegmentIndex = 8
 	// VirtualMachineScaleSets means that the vms are in a virtual machine scaleset.
 	VirtualMachineScaleSets = "VirtualMachineScaleSets"
+	// VirtualMachines means that the vms are standalone.
+	VirtualMachines = "VirtualMachines"
 	// ScaleSetPrioritySpot means the ScaleSet will use Spot VMs.
 	ScaleSetPrioritySpot = "Spot"
 )
@@ -60,6 +62,8 @@ const (
 	NetworkPluginNone = "none"
 	// VMSSVMType is the string const for the vmss VM Type.
 	VMSSVMType = "vmss"
+	// VMsVMType is the string const for the standalone VM Type.
+	VMsVMType = "vms"
 	// StandardVMType is the string const for the standard VM Type.
 	StandardVMType = "standard"
 )

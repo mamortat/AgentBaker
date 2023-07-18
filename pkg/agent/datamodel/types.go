@@ -936,6 +936,8 @@ func (p *Properties) IsVHDDistroForAllNodes() bool {
 func (p *Properties) GetVMType() string {
 	if p.HasVMSSAgentPool() {
 		return VMSSVMType
+	} else if p.HasVMsAgentPool() {
+		return VMsVMType
 	}
 	return StandardVMType
 }
@@ -944,6 +946,16 @@ func (p *Properties) GetVMType() string {
 func (p *Properties) HasVMSSAgentPool() bool {
 	for _, agentPoolProfile := range p.AgentPoolProfiles {
 		if strings.EqualFold(agentPoolProfile.AvailabilityProfile, VirtualMachineScaleSets) {
+			return true
+		}
+	}
+	return false
+}
+
+// HasVMsAgentPool returns true if the cluster contains Virtual Machine Scale Sets agent pools.
+func (p *Properties) HasVMsAgentPool() bool {
+	for _, agentPoolProfile := range p.AgentPoolProfiles {
+		if strings.EqualFold(agentPoolProfile.AvailabilityProfile, VirtualMachines) {
 			return true
 		}
 	}
