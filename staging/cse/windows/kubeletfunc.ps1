@@ -44,7 +44,7 @@ function Write-AzureConfig {
         $UseContainerD = $false
     )
 
-    $IsVMsAgentPool = $VmType -eq "vms"
+    $IsVMsAgentPool = $true #$VmType -eq "vms"
 
     if ( -Not $PrimaryAvailabilitySetName -And -Not $PrimaryScaleSetName -And -Not $IsVMsAgentPool ) {
         Set-ExitCode -ExitCode $global:WINDOWS_CSE_ERROR_INVALID_PARAMETER_IN_AZURE_CONFIG -ErrorMessage "Either PrimaryAvailabilitySetName or PrimaryScaleSetName must be set"
